@@ -3,32 +3,17 @@ using OrderBack.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Добавляем DbContext с использованием строки подключения
-builder.Services.AddDbContext<OrderContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("OrderConnection")));
+// Это добавляет поддержку контроллеров
+builder.Services.AddControllers(); 
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+// Добавление DbContext для работы с базой данных
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<OrderContext>(options =>
     options.UseNpgsql(connectionString));
 
-
 var app = builder.Build();
 
-// Конфигурация middleware
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-// Маршрутизация контроллера
+// Настройка маршрутизации и эндпоинтов
 app.MapControllers();
 
 app.Run();
