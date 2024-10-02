@@ -49,7 +49,7 @@ public class OrdersController : ControllerBase
 
     // Обновление существующего заказа
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutOrder(int id, Order order)
+    public async Task<IActionResult> PutOrder(Guid id, Order order)
     {
         if (id != order.Id)
         {
