@@ -1,34 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OrderBack.Data;
+using OrderBack.Interfaces;
 using OrderBack.Models;
 
-namespace OrderBack.Сontrollers;
+namespace OrderBack.Controllers;
 
 [Route("[controller]")]
 [ApiController]
 public class NewOrdersController : Controller
 {
-    private readonly OrderContext _orderContext;
-    
-    public NewOrdersController(OrderContext orderContext)
+    private readonly IOrderService _orderService;
+
+    public NewOrdersController(IOrderService orderService)
     {
-        _orderContext = orderContext;
+        _orderService = orderService;
     }
-    
-    //Метод для получения всех заказов
+
     [HttpGet]
     public IActionResult GetAllOrders()
     {
-        var allOrders = _orderContext.Orders.ToList();
+        var allOrders = _orderService.GetAllOrders();
         return Ok(allOrders);
     }
 
-    //Метод для получения заказа по id
     [HttpGet]
     [Route("{id:guid}")]
     public IActionResult GetOrderById(Guid id)
     {
-        var order = _orderContext.Orders.Find(id);
+        var order = _orderService.GetOrderById(id);
         if (order is null)
         {
             return NotFound();
@@ -37,55 +35,36 @@ public class NewOrdersController : Controller
         return Ok(order);
     }
 
-    //Метод для добавления новго заказа
     [HttpPost]
     public IActionResult AddOrder(AddOrderDto addOrderDto)
     {
-        var orderEntity = new Order()
-        {
-            Name = addOrderDto.Name,
-            Quantity = addOrderDto.Quantity
-        };
-
-        _orderContext.Orders.Add(orderEntity);
-        _orderContext.SaveChanges();
-
-        return Ok(orderEntity);
+        var newOrder = _orderService.AddOrder(addOrderDto);
+        return Ok(newOrder);
     }
 
-    //Метод для изменения нового заказа
     [HttpPut]
     [Route("{id:guid}")]
     public IActionResult UpdateOrder(Guid id, UpdateOrderDto updateOrderDto)
     {
-        var order = _orderContext.Orders.Find(id);
-        if (order is null)
+        var updatedOrder = _orderService.UpdateOrder(id, updateOrderDto);
+        if (updatedOrder is null)
         {
             return NotFound();
         }
 
-        order.Name = updateOrderDto.Name;
-        order.Quantity = updateOrderDto.Quantity;
-
-        _orderContext.SaveChanges();
-
-        return Ok(order);
+        return Ok(updatedOrder);
     }
 
-    //Метод удаления
     [HttpDelete]
     [Route("{id:guid}")]
     public IActionResult DeleteOrder(Guid id)
     {
-        var order = _orderContext.Orders.Find(id);
-        if (order is null)
+        var deleted = _orderService.DeleteOrder(id);
+        if (!deleted)
         {
             return NotFound();
         }
 
-        _orderContext.Orders.Remove(order);
-        _orderContext.SaveChanges();
-
-        return Ok("Deleted successful");
+        return Ok("Deleted successfully");
     }
 }
