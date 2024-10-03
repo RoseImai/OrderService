@@ -2,7 +2,7 @@
 using OrderBack.Interfaces;
 using OrderBack.Models;
 
-namespace OrderBack.Controllers;
+namespace OrderBack.Сontrollers;
 
 [Route("[controller]")]
 [ApiController]

@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using OrderBack.Data;
+﻿using OrderBack.Data;
 using OrderBack.Interfaces;
 using OrderBack.Models;
+using OrderBack.Models.Entities;
 
 namespace OrderBack.Services;
 
@@ -15,40 +15,62 @@ public class OrderService : IOrderService
         _orderContext = orderContext;
     }
 
-    public List<Order> GetAllOrders()
+    public IEnumerable<OrderResponseDto> GetAllOrders()
     {
-        return _orderContext.Orders.ToList();
-    }
-
-    public Order GetOrderById(Guid id)
-    {
-        return _orderContext.Orders.Find(id);
-    }
-
-    public Order AddOrder(AddOrderDto addOrderDto)
-    {
-        var orderEntity = new Order
+        var orders = _orderContext.Orders.ToList();
+        
+        return orders.Select(order => new OrderResponseDto
         {
-            Name = addOrderDto.Name,
-            Quantity = addOrderDto.Quantity
-        };
-
-        _orderContext.Orders.Add(orderEntity);
-        _orderContext.SaveChanges();
-
-        return orderEntity;
+            Name = order.Name,
+            Quantity = order.Quantity
+        });
     }
 
-    public Order UpdateOrder(Guid id, UpdateOrderDto updateOrderDto)
+    public OrderResponseDto? GetOrderById(Guid id)
     {
         var order = _orderContext.Orders.Find(id);
         if (order is null) return null;
 
-        order.Name = updateOrderDto.Name;
-        order.Quantity = updateOrderDto.Quantity;
+        return new OrderResponseDto
+        {
+            Name = order.Name,
+            Quantity = order.Quantity
+        };
+    }
+
+    public OrderResponseDto AddOrder(AddOrderDto newOrder)
+    {
+        var order = new Order
+        {
+            Name = newOrder.Name,
+            Quantity = newOrder.Quantity
+        };
+
+        _orderContext.Orders.Add(order);
         _orderContext.SaveChanges();
 
-        return order;
+        return new OrderResponseDto
+        {
+            Name = order.Name,
+            Quantity = order.Quantity
+        };
+    }
+
+    public OrderResponseDto? UpdateOrder(Guid id, UpdateOrderDto updateOrder)
+    {
+        var order = _orderContext.Orders.Find(id);
+        if (order is null) return null;
+
+        order.Name = updateOrder.Name;
+        order.Quantity = updateOrder.Quantity;
+
+        _orderContext.SaveChanges();
+
+        return new OrderResponseDto
+        {
+            Name = order.Name,
+            Quantity = order.Quantity
+        };
     }
 
     public bool DeleteOrder(Guid id)
