@@ -1,0 +1,31 @@
+﻿{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:46498"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gateway/neworders",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/neworders",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7583
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/neworders/{ip}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/neworders/{ip}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7583
+        }
+      ]
+    }
+  ]
+}

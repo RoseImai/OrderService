@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("OrderBack")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("OcelotGateway")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ddf8345b9a335056974701ac09af33e95159243f")]
-[assembly: System.Reflection.AssemblyProductAttribute("OrderBack")]
-[assembly: System.Reflection.AssemblyTitleAttribute("OrderBack")]
+[assembly: System.Reflection.AssemblyProductAttribute("OcelotGateway")]
+[assembly: System.Reflection.AssemblyTitleAttribute("OcelotGateway")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.
