@@ -14,4 +14,4 @@ Route для методов Get, Post: "/gateway/neworders"
 
 Route для методов Get, Put, Delete по Id: "/gateway/neworders/{id}"
 
-Примечание: Проекты запускались через IIS Express, поэтому порты в OcelotGateway были указаны с параметрами для IIS, а не http или https
+Примечание: Порты были изменены под запуск http
