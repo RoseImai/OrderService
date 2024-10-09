@@ -32,9 +32,11 @@ builder.Services.AddDbContext<OrderContext>(options =>
 var app = builder.Build();
 
 //Это для включения Swagger
-//Ранее использовал в среде Development, после удаления launchSettings.json убрал условие
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI();
+}
 
 
 // Настройка маршрутизации и эндпоинтов
