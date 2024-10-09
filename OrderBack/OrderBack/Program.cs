@@ -5,6 +5,10 @@ using OrderBack.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Это добавляет Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 // Это добавляет поддержку контроллеров
 builder.Services.AddControllers(); 
 
@@ -17,6 +21,13 @@ builder.Services.AddDbContext<OrderContext>(options =>
     options.UseNpgsql(connectionString));
 
 var app = builder.Build();
+
+//Это для включения Swagger
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 // Настройка маршрутизации и эндпоинтов
 app.MapControllers();
