@@ -6,9 +6,9 @@ using OrderBack.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 //Это запускает api через Kestrel (Настройки в appsettings.json)
-builder.WebHost.ConfigureKestrel((context, options) =>
+builder.WebHost.ConfigureKestrel(options =>
 {
-    options.Configure(context.Configuration.GetSection("Kestrel"));
+    options.Configure(builder.Configuration.GetSection("Kestrel"));
 });
 
 //Это добавляет Swagger
@@ -31,15 +31,15 @@ builder.Services.AddDbContext<OrderContext>(options =>
 
 var app = builder.Build();
 
-//Это для включения Swagger
+//Это для включения Swagger в DevEnv
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-
 // Настройка маршрутизации и эндпоинтов
 app.MapControllers();
 
 app.Run();
+
