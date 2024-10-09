@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using OrderBack.Data;
 using OrderBack.Interfaces;
+using OrderBack.Profiles;
 using OrderBack.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,9 @@ builder.Services.AddControllers();
 
 // Это добавляет сервис и его интерфейс
 builder.Services.AddScoped<IOrderService, OrderService>();
+
+//Это добавляет Automapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Добавление DbContext для работы с базой данных
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

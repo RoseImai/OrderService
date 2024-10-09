@@ -105,3 +105,5 @@ C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\OrderBack\obj\Debug\ne
 C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\OrderBack\obj\Debug\net8.0\OrderBack.pdb
 C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\OrderBack\obj\Debug\net8.0\OrderBack.genruntimeconfig.cache
 C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\OrderBack\obj\Debug\net8.0\ref\OrderBack.dll
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\OrderBack\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\OrderBack\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
