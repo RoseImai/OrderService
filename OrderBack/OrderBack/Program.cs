@@ -1,10 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using OrderBack.Data;
 using OrderBack.Interfaces;
-using OrderBack.Profiles;
 using OrderBack.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Это запускает api через Kestrel (Настройки в appsettings.json)
+builder.WebHost.ConfigureKestrel((context, options) =>
+{
+    options.Configure(context.Configuration.GetSection("Kestrel"));
+});
 
 //Это добавляет Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -27,11 +32,10 @@ builder.Services.AddDbContext<OrderContext>(options =>
 var app = builder.Build();
 
 //Это для включения Swagger
-if (app.Environment.IsDevelopment())
-{
+//Ранее использовал в среде Development, после удаления launchSettings.json убрал условие
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 
 // Настройка маршрутизации и эндпоинтов
 app.MapControllers();
