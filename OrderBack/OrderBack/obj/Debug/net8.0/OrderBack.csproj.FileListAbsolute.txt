@@ -107,3 +107,7 @@ C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\OrderBack\obj\Debug\ne
 C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\OrderBack\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\OrderBack\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\OrderBack\bin\Debug\net8.0\appsettings.json
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\orderback\bin\Debug\net8.0\MassTransit.dll
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\orderback\bin\Debug\net8.0\MassTransit.Abstractions.dll
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\orderback\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\orderback\bin\Debug\net8.0\RabbitMQ.Client.dll

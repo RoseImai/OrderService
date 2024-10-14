@@ -1,9 +1,30 @@
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using OrderBack.Consumers;
 using OrderBack.Data;
 using OrderBack.Interfaces;
 using OrderBack.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Настройка MassTransit
+builder.Services.AddMassTransit(busConfigurator =>
+{
+    busConfigurator.AddConsumer<OrderCreatedConsumer>();
+    busConfigurator.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host("rabbitmq://localhost", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
+        
+        cfg.ReceiveEndpoint("OrderCreatedQueue", e =>
+        {
+            e.ConfigureConsumer<OrderCreatedConsumer>(context);
+        });
+    });
+});
 
 //Это запускает api через Kestrel (Настройки в appsettings.json)
 builder.WebHost.ConfigureKestrel(options =>
