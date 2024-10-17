@@ -4,7 +4,7 @@
       context: .
       dockerfile: OrderBack/Docker/Dockerfile
     environment:
-      - RabbitMQ__Host=amqp://guest:guest@rabbitmq_container:5672
+      - RabbitMQ__Host=amqp://guest:guest@rabbitmq:5672
     depends_on:
       - rabbitmq
 
