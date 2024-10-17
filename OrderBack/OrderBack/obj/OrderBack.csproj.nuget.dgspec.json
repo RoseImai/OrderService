@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\OrderBack\\OrderBack.csproj": {}
+    "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\orderBack\\OrderBack.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\OrderBack\\OrderBack.csproj": {
+    "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\orderBack\\OrderBack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\OrderBack\\OrderBack.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\orderBack\\OrderBack.csproj",
         "projectName": "OrderBack",
-        "projectPath": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\OrderBack\\OrderBack.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\orderBack\\OrderBack.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\OrderBack\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\orderBack\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

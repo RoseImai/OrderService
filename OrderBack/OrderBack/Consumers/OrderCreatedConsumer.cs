@@ -9,7 +9,6 @@ public class OrderCreatedConsumer : IConsumer<OrderCreated>
     {
         var message = context.Message;
         Console.WriteLine($"Received order: {message.Id}, {message.Name}, {message.Quantity}");
-
         
         return Task.CompletedTask;
     }

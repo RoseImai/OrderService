@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <InvariantGlobalization>true</InvariantGlobalization>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -33,6 +34,9 @@
     <ItemGroup>
       <Content Update="appsettings.json">
         <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+      </Content>
+      <Content Include="..\.dockerignore">
+        <Link>Docker\.dockerignore</Link>
       </Content>
     </ItemGroup>
 
