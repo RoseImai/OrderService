@@ -2,6 +2,7 @@ using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using OrderBack.Data;
 using OrderBack.Interfaces;
+using OrderBack.Messages;
 using OrderBack.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,13 @@ builder.Services.AddMassTransit(busConfigurator =>
             h.Username("guest");
             h.Password("guest");
         });
+
+        cfg.Message<OrderCreated>(x =>
+            x.SetEntityName("order-created-exchange"));
+        
+        
+        cfg.ConfigureEndpoints(context);
+        LogContext.ConfigureCurrentLogContext();
     });
 });
 

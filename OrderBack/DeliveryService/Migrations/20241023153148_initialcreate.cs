@@ -16,9 +16,10 @@ namespace DeliveryService.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    OrderId = table.Column<Guid>(type: "uuid", nullable: false),
                     OrderName = table.Column<string>(type: "text", nullable: true),
                     Quantity = table.Column<int>(type: "integer", nullable: false),
-                    OrderDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    Status = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

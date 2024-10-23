@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using DeliveryService.Consumers;
 using DeliveryService.Data;
 using MassTransit;
@@ -34,9 +35,13 @@ builder.Services.AddMassTransit(busConfigurator =>
         
         cfg.ReceiveEndpoint("OrderCreatedQueue", e =>
         {
+            e.Bind("order-created-exchange");
             e.ConfigureConsumer<OrderCreatedConsumer>(context);
-            e.Bind("OrderBack.Messages:OrderCreated");
+            e.ConfigureConsumeTopology = false;
         });
+        
+        cfg.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(false));
+        LogContext.ConfigureCurrentLogContext();
     });
 });
 

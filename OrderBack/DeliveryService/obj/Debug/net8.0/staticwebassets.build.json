@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "L8Gk2wOf1iJv9x4yLT2YbhNiXwOhIzmv94VTTzS3xzM=",
+  "Hash": "Ssd1ENf3loN0SWiq/WPlt/dvsmHRDfp0G/rUBmO0vLM=",
   "Source": "DeliveryService",
   "BasePath": "_content/DeliveryService",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\OrderBack\\OrderBack.csproj",
+      "Version": 2,
+      "Source": "OrderBack",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
   "DiscoveryPatterns": [],
   "Assets": []
 }

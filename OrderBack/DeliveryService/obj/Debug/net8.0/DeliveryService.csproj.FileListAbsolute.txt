@@ -108,3 +108,10 @@ C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\deliveryservice\bin\De
 C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\deliveryservice\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\deliveryservice\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\deliveryservice\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\DeliveryService\bin\Debug\net8.0\OrderBack.deps.json
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\DeliveryService\bin\Debug\net8.0\OrderBack.runtimeconfig.json
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\DeliveryService\bin\Debug\net8.0\OrderBack.exe
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\DeliveryService\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\DeliveryService\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\DeliveryService\bin\Debug\net8.0\OrderBack.dll
+C:\Users\User\Desktop\GitHub Repos\OrderService\OrderBack\DeliveryService\bin\Debug\net8.0\OrderBack.pdb

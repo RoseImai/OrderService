@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DeliveryService.Migrations
 {
     [DbContext(typeof(DeliveryContext))]
-    [Migration("20241022091746_initialcreate")]
+    [Migration("20241023153148_initialcreate")]
     partial class initialcreate
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace DeliveryService.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -31,14 +31,17 @@ namespace DeliveryService.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("OrderName")
                         .HasColumnType("text");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
