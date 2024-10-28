@@ -2,7 +2,6 @@ using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using OrderBack.Data;
 using OrderBack.Interfaces;
-using OrderBack.Messages;
 using OrderBack.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,10 +11,15 @@ builder.Services.AddMassTransit(busConfigurator =>
 {
     busConfigurator.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("rabbitmq://localhost", h =>
+        var rabbitMqSettings = builder.Configuration.GetSection("RabbitMq");
+        var host = rabbitMqSettings["Host"];
+        var username = rabbitMqSettings["Username"];
+        var password = rabbitMqSettings["Password"];
+        
+        cfg.Host(host, h =>
         {
-            h.Username("guest");
-            h.Password("guest");
+            h.Username(username);
+            h.Password(password);
         });
 
         cfg.ConfigureEndpoints(context);

@@ -27,10 +27,15 @@ builder.Services.AddMassTransit(busConfigurator =>
     busConfigurator.AddConsumer<OrderCreatedConsumer>();
     busConfigurator.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("rabbitmq://localhost", h =>
+        var rabbitMqSettings = builder.Configuration.GetSection("RabbitMq");
+        var host = rabbitMqSettings["Host"];
+        var username = rabbitMqSettings["Username"];
+        var password = rabbitMqSettings["Password"];
+        
+        cfg.Host(host, h =>
         {
-            h.Username("guest");
-            h.Password("guest");
+            h.Username(username);
+            h.Password(password);
         });
 
         cfg.ReceiveEndpoint(
