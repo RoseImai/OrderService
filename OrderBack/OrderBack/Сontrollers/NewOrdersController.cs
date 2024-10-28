@@ -11,12 +11,10 @@ namespace OrderBack.Сontrollers;
 public class NewOrdersController : Controller
 {
     private readonly IOrderService _orderService;
-    private readonly IPublishEndpoint _publishEndpoint;
 
     public NewOrdersController(IOrderService orderService, IPublishEndpoint publishEndpoint)
     {
         _orderService = orderService;
-        _publishEndpoint = publishEndpoint;
     }
 
     [HttpGet]
@@ -43,14 +41,6 @@ public class NewOrdersController : Controller
     public async Task<IActionResult> AddOrder([FromBody]AddOrderDto addOrderDto)
     {
         var newOrder = _orderService.AddOrder(addOrderDto);
-        var orderCreatedEvent = new OrderCreated
-        {
-            Id = newOrder.Id,
-            Name = newOrder.Name,
-            Quantity = newOrder.Quantity
-        };
-
-        await _publishEndpoint.Publish(orderCreatedEvent);
         return Ok(newOrder);
     }
 

@@ -18,10 +18,6 @@ builder.Services.AddMassTransit(busConfigurator =>
             h.Password("guest");
         });
 
-        cfg.Message<OrderCreated>(x =>
-            x.SetEntityName("order-created-exchange"));
-        
-        
         cfg.ConfigureEndpoints(context);
         LogContext.ConfigureCurrentLogContext();
     });

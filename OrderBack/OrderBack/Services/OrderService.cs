@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using MassTransit;
 using OrderBack.Data;
 using OrderBack.Interfaces;
+using OrderBack.Messages;
 using OrderBack.Models;
 using OrderBack.Models.Entities;
 
@@ -11,9 +13,12 @@ public class OrderService : IOrderService
 {
     private readonly OrderContext _orderContext;
     private readonly IMapper _mapper;
+    private readonly IPublishEndpoint _publishEndpoint;
 
-    public OrderService(OrderContext orderContext, IMapper mapper)
+
+    public OrderService(OrderContext orderContext, IMapper mapper, IPublishEndpoint publishEndpoint)
     {
+        _publishEndpoint = publishEndpoint;
         _orderContext = orderContext;
         _mapper = mapper;
     }
@@ -38,6 +43,15 @@ public class OrderService : IOrderService
         
         _orderContext.Orders.Add(order);
         _orderContext.SaveChanges();
+        
+        /*var orderCreatedEvent = new OrderCreated
+        {
+            Id = order.Id,
+            Name = order.Name,
+            Quantity = order.Quantity
+        };*/
+        var orderCreatedEvent = _mapper.Map<OrderCreated>(order);
+        _publishEndpoint.Publish(orderCreatedEvent);
 
         return _mapper.Map<OrderResponseDto>(order);
     }

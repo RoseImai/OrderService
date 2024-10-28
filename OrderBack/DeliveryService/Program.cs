@@ -32,15 +32,13 @@ builder.Services.AddMassTransit(busConfigurator =>
             h.Username("guest");
             h.Password("guest");
         });
-        
-        cfg.ReceiveEndpoint("OrderCreatedQueue", e =>
-        {
-            e.Bind("order-created-exchange");
-            e.ConfigureConsumer<OrderCreatedConsumer>(context);
-            e.ConfigureConsumeTopology = false;
-        });
-        
-        cfg.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(false));
+
+        cfg.ReceiveEndpoint(
+            nameof(OrderCreatedConsumer), e =>
+            {
+                e.PrefetchCount = 1000;
+                e.Consumer<OrderCreatedConsumer>(context);
+            });
         LogContext.ConfigureCurrentLogContext();
     });
 });

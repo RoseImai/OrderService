@@ -1,5 +1,4 @@
 ﻿using DeliveryService.Data;
-//using DeliveryService.Messages;
 using DeliveryService.Models.Entity;
 using MassTransit;
 using OrderBack.Messages;
