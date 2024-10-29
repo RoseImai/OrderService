@@ -1,7 +1,5 @@
-﻿using MassTransit;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OrderBack.Interfaces;
-using OrderBack.Messages;
 using OrderBack.Models;
 
 namespace OrderBack.Сontrollers;
@@ -12,7 +10,7 @@ public class NewOrdersController : Controller
 {
     private readonly IOrderService _orderService;
 
-    public NewOrdersController(IOrderService orderService, IPublishEndpoint publishEndpoint)
+    public NewOrdersController(IOrderService orderService)
     {
         _orderService = orderService;
     }
@@ -38,7 +36,7 @@ public class NewOrdersController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddOrder([FromBody]AddOrderDto addOrderDto)
+    public IActionResult AddOrder([FromBody]AddOrderDto addOrderDto)
     {
         var newOrder = _orderService.AddOrder(addOrderDto);
         return Ok(newOrder);

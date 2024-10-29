@@ -44,12 +44,6 @@ public class OrderService : IOrderService
         _orderContext.Orders.Add(order);
         _orderContext.SaveChanges();
         
-        /*var orderCreatedEvent = new OrderCreated
-        {
-            Id = order.Id,
-            Name = order.Name,
-            Quantity = order.Quantity
-        };*/
         var orderCreatedEvent = _mapper.Map<OrderCreated>(order);
         _publishEndpoint.Publish(orderCreatedEvent);
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\deliveryservice\\DeliveryService.csproj": {}
+    "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\DeliveryService\\DeliveryService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\deliveryservice\\DeliveryService.csproj": {
+    "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\DeliveryService\\DeliveryService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\deliveryservice\\DeliveryService.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\DeliveryService\\DeliveryService.csproj",
         "projectName": "DeliveryService",
-        "projectPath": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\deliveryservice\\DeliveryService.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\DeliveryService\\DeliveryService.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\deliveryservice\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\GitHub Repos\\OrderService\\OrderBack\\DeliveryService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
