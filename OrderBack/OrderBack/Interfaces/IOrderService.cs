@@ -1,5 +1,4 @@
 ﻿using OrderBack.Models;
-using OrderBack.Models.Entities;
 
 namespace OrderBack.Interfaces;
 

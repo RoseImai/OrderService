@@ -1,10 +1,18 @@
-using System.Text.Json.Serialization;
 using DeliveryService.Consumers;
 using DeliveryService.Data;
+using DeliveryService.Interfaces;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+// Это добавляет поддержку контроллеров
+builder.Services.AddControllers(); 
+
+// Это добавляет сервис и его интерфейс
+builder.Services.AddScoped<IDeliveryService, DeliveryService.Services.DeliveryService>();
+
+//Это добавляет Automapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 //Это запускает api через Kestrel (Настройки в appsettings.json)
 builder.WebHost.ConfigureKestrel(options =>
@@ -56,5 +64,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.MapControllers();
 
 app.Run();

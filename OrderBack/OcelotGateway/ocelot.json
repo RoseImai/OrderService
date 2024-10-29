@@ -26,6 +26,30 @@
           "Port": 5247
         }
       ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/delivery",
+      "UpstreamHttpMethod": ["GET"],
+      "DownstreamPathTemplate": "/delivery",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5021
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/delivery/{ip}",
+      "UpstreamHttpMethod": ["GET"],
+      "DownstreamPathTemplate": "/delivery/{ip}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5021
+        }
+      ]
     }
   ]
 }
