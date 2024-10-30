@@ -51,6 +51,8 @@ builder.Services.AddMassTransit(busConfigurator =>
             {
                 e.PrefetchCount = 1000;
                 e.Consumer<OrderCreatedConsumer>(context);
+                e.UseMessageRetry(retry =>
+                    retry.Interval(5, TimeSpan.FromSeconds(5)));
             });
         LogContext.ConfigureCurrentLogContext();
     });

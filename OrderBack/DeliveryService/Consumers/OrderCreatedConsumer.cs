@@ -8,10 +8,12 @@ namespace DeliveryService.Consumers;
 public class OrderCreatedConsumer : IConsumer<OrderCreated>
 {
     private readonly DeliveryContext _deliveryContext;
+    private readonly ILogger<OrderCreatedConsumer> _logger;
 
-    public OrderCreatedConsumer(DeliveryContext deliveryContext)
+    public OrderCreatedConsumer(DeliveryContext deliveryContext, ILogger<OrderCreatedConsumer> logger)
     {
         _deliveryContext = deliveryContext;
+        _logger = logger;
     }
 
     public async Task Consume(ConsumeContext<OrderCreated> context)
@@ -29,10 +31,12 @@ public class OrderCreatedConsumer : IConsumer<OrderCreated>
                     
             _deliveryContext.DeliveryOrders.Add(delivery);
             await _deliveryContext.SaveChangesAsync();
+            _logger.LogInformation("Successfully got Message: {0}", context.Message);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.Message);
+            _logger.LogError(e, "Ошибка при обработке сообщения: {0}", context.Message);
+            throw;
         }
     }
 }
